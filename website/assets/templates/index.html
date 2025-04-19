@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Path from website/FOLDER_NAME/index.html to website/assets/css/style.css -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>{{ title }}</title>
+    {# Jinja2 variable placeholder #}
+  </head>
+  <body>
+    <main class="markdown-body">
+      <h1>{{ title }}</h1>
+      <ol>
+        {% for chapter in chapters %} {# Jinja2 loop #}
+        <li><a href="{{ chapter.filename }}">{{ chapter.title }}</a></li>
+        {% else %}
+        <li>No chapters found.</li>
+        {% endfor %}
+      </ol>
+    </main>
+  </body>
+</html>
